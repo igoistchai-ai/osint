@@ -87,21 +87,42 @@ button{color:inherit}
   background-position:center center;
 }
 
-/* PREMIUM NZX SATURN */
-.saturn-bg{position:absolute;left:50%;top:50%;width:min(74vw,760px);height:min(74vw,760px);min-width:390px;min-height:390px;transform:translate(-50%,-50%);pointer-events:none;z-index:0;opacity:.70;filter:saturate(.7)}
-.saturn-orbit{position:absolute;inset:-8%;border:1px solid rgba(177,196,232,.035);border-radius:50%;box-shadow:0 0 80px rgba(112,145,205,.025);animation:satOrbit 48s linear infinite}
-.saturn-planet{position:absolute;width:47%;aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 31% 25%,rgba(255,255,255,.15),transparent 12%),radial-gradient(circle at 65% 65%,rgba(90,120,170,.08),transparent 30%),radial-gradient(circle,#222b39 0,#121923 48%,#070a0f 73%,transparent 74%);box-shadow:inset -35px -25px 70px rgba(0,0,0,.76),inset 18px 10px 48px rgba(205,220,245,.06),0 0 100px rgba(110,145,210,.07);animation:satSpin 42s linear infinite}
-.saturn-points{position:absolute;inset:4%;border-radius:50%;opacity:.9;background-image:radial-gradient(circle at 8% 15%,rgba(235,242,255,.75) 0 1px,transparent 1.7px),radial-gradient(circle at 21% 38%,rgba(177,198,232,.55) 0 1px,transparent 1.8px),radial-gradient(circle at 37% 18%,rgba(220,231,250,.65) 0 1px,transparent 1.7px),radial-gradient(circle at 53% 31%,rgba(155,180,220,.55) 0 1px,transparent 1.8px),radial-gradient(circle at 72% 20%,rgba(236,242,255,.65) 0 1px,transparent 1.8px),radial-gradient(circle at 88% 42%,rgba(165,190,228,.50) 0 1px,transparent 1.7px),radial-gradient(circle at 17% 65%,rgba(212,226,249,.58) 0 1px,transparent 1.8px),radial-gradient(circle at 42% 82%,rgba(151,178,218,.54) 0 1px,transparent 1.8px),radial-gradient(circle at 64% 68%,rgba(231,239,253,.60) 0 1px,transparent 1.8px),radial-gradient(circle at 82% 80%,rgba(184,204,235,.48) 0 1px,transparent 1.7px);background-size:53px 47px,71px 61px,47px 59px,83px 67px,61px 53px,73px 79px,59px 71px,89px 61px,67px 83px,79px 73px;background-position:0 0,11px 17px,23px 3px,7px 31px,29px 13px,3px 21px,17px 5px,31px 11px,9px 27px,25px 19px;mask-image:radial-gradient(circle,#000 0 66%,transparent 76%);-webkit-mask-image:radial-gradient(circle,#000 0 66%,transparent 76%)}
-.saturn-atmosphere{position:absolute;inset:-2%;border-radius:50%;background:repeating-linear-gradient(0deg,transparent 0 12px,rgba(206,220,243,.025) 13px 15px,transparent 16px 28px);opacity:.65;mix-blend-mode:screen;mask-image:radial-gradient(circle,#000 0 66%,transparent 78%);-webkit-mask-image:radial-gradient(circle,#000 0 66%,transparent 78%)}
-.saturn-highlight{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 28% 23%,rgba(235,242,255,.11),transparent 27%),radial-gradient(ellipse at 73% 76%,rgba(0,0,0,.42),transparent 48%);box-shadow:inset -20px -8px 45px rgba(0,0,0,.28)}
-.saturn-rings{position:absolute;left:50%;top:50%;width:91%;height:25%;transform:translate(-50%,-50%) rotate(-13deg);border-radius:50%;border:1px solid rgba(201,216,240,.17);box-shadow:0 0 0 7px rgba(159,181,218,.035),0 0 0 15px rgba(201,216,240,.08),0 0 0 23px rgba(125,151,195,.035),0 0 0 32px rgba(213,225,246,.055),0 0 0 43px rgba(115,141,183,.025);animation:ringSpin 42s linear infinite}
-.saturn-rings:after{content:"";position:absolute;inset:13%;border-radius:50%;border:1px dashed rgba(235,241,252,.12);box-shadow:0 0 0 10px rgba(160,183,222,.025),0 0 0 18px rgba(225,235,250,.035)}
-.saturn-rings-back{z-index:0;clip-path:inset(0 0 50% 0)}.saturn-rings-front{z-index:4;clip-path:inset(50% 0 0 0)}
-@keyframes satSpin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes ringSpin{from{transform:translate(-50%,-50%) rotate(-13deg)}to{transform:translate(-50%,-50%) rotate(347deg)}}
-@keyframes satOrbit{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@media(max-width:720px){.saturn-bg{width:620px;height:620px;min-width:0;min-height:0;opacity:.46}}
-@media(prefers-reduced-motion:reduce){.saturn-planet,.saturn-rings,.saturn-orbit{animation:none}}
+/* ===== NZX REAL-TIME POINT SATURN ===== */
+.saturn-bg{
+ position:absolute;left:50%;top:50%;width:min(72vw,760px);height:min(72vw,760px);
+ min-width:420px;min-height:420px;transform:translate(-50%,-50%);
+ pointer-events:none;z-index:0;opacity:.78;
+}
+#saturnParticles{position:absolute;inset:0;width:100%;height:100%;display:block}
+.saturn-ring-system{
+ position:absolute;left:50%;top:50%;width:76%;height:27%;
+ transform:translate(-50%,-50%) rotateX(68deg) rotateZ(-14deg);
+ transform-style:preserve-3d;z-index:3;
+}
+.saturn-ring{
+ position:absolute;left:50%;top:50%;width:100%;height:100%;
+ transform:translate(-50%,-50%);border-radius:50%;
+ border:1px solid rgba(206,221,246,.14);
+ box-shadow:0 0 0 4px rgba(180,200,232,.018);
+}
+.ring-1{width:64%;height:64%;border-color:rgba(225,235,250,.16)}
+.ring-2{width:73%;height:73%;border-color:rgba(160,183,220,.12)}
+.ring-3{width:82%;height:82%;border-color:rgba(224,234,249,.20)}
+.ring-4{width:91%;height:91%;border-color:rgba(138,163,203,.10)}
+.ring-5{width:100%;height:100%;border-color:rgba(210,224,246,.15)}
+.ring-6{width:112%;height:112%;border-color:rgba(126,153,195,.07)}
+.saturn-haze{
+ position:absolute;left:50%;top:50%;width:43%;height:43%;transform:translate(-50%,-50%);
+ border-radius:50%;z-index:2;pointer-events:none;
+ background:radial-gradient(circle,rgba(180,202,238,.035),transparent 68%);
+ box-shadow:0 0 100px rgba(120,155,215,.07);
+}
+@media(max-width:720px){
+ .saturn-bg{width:640px;height:640px;min-width:0;min-height:0;opacity:.48}
+}
+@media(prefers-reduced-motion:reduce){
+ .saturn-ring-system{animation:none}
+}
 
 .canvas:before{
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -318,10 +339,16 @@ button{color:inherit}
   <main class="workspace">
     <div class="canvas" id="canvas">
       <div class="saturn-bg" aria-hidden="true">
-        <div class="saturn-orbit"></div>
-        <div class="saturn-rings saturn-rings-back"></div>
-        <div class="saturn-planet"><div class="saturn-atmosphere"></div><div class="saturn-points"></div><div class="saturn-highlight"></div></div>
-        <div class="saturn-rings saturn-rings-front"></div>
+        <canvas id="saturnParticles"></canvas>
+        <div class="saturn-ring-system">
+          <div class="saturn-ring ring-1"></div>
+          <div class="saturn-ring ring-2"></div>
+          <div class="saturn-ring ring-3"></div>
+          <div class="saturn-ring ring-4"></div>
+          <div class="saturn-ring ring-5"></div>
+          <div class="saturn-ring ring-6"></div>
+        </div>
+        <div class="saturn-haze"></div>
       </div>
       <div class="world" id="world">
         <svg class="edges" id="edges" viewBox="-5000 -5000 10000 10000" preserveAspectRatio="none"></svg>
@@ -828,7 +855,95 @@ button{color:inherit}
     }
     applyView();
   });
+
+  // --- Animated Saturn made from real projected 3D points ---
+  (() => {
+    const cv=document.getElementById("saturnParticles");
+    const ctx=cv.getContext("2d");
+    const ringSystem=document.querySelector(".saturn-ring-system");
+    let W=0,H=0,dpr=1,points=[];
+    const TAU=Math.PI*2;
+    let angle=0;
+    const count=950;
+
+    function resizeSaturn(){
+      const r=cv.getBoundingClientRect();
+      dpr=Math.min(devicePixelRatio||1,2);
+      W=Math.max(1,Math.floor(r.width)); H=Math.max(1,Math.floor(r.height));
+      cv.width=W*dpr; cv.height=H*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+
+    function seed(){
+      points=[];
+      // Fibonacci sphere: points are actually distributed over a 3D sphere.
+      const golden=Math.PI*(3-Math.sqrt(5));
+      for(let i=0;i<count;i++){
+        const y=1-(i/(count-1))*2;
+        const rr=Math.sqrt(Math.max(0,1-y*y));
+        const a=i*golden;
+        points.push({
+          x:Math.cos(a)*rr,y,z:Math.sin(a)*rr,
+          size:Math.random()*1.25+.38,
+          tw:Math.random()*TAU,
+          band:Math.sin(a*3.1+y*10)
+        });
+      }
+    }
+
+    function drawSaturn(t){
+      angle += 0.00095; // slow, constant planet rotation
+      ctx.clearRect(0,0,W,H);
+      const cx=W/2,cy=H/2;
+      const R=Math.min(W,H)*.225;
+      const f=2.15;
+      const dots=[];
+      for(const p of points){
+        const ca=Math.cos(angle),sa=Math.sin(angle);
+        const x=p.x*ca-p.z*sa;
+        const z=p.x*sa+p.z*ca;
+        const perspective=f/(f-z*.62);
+        const sx=cx+x*R*perspective;
+        const sy=cy+p.y*R*perspective;
+        if(z<-.72) continue;
+        const light=Math.max(.08,(z+1)/2);
+        const pulse=.82+.18*Math.sin(t*.0015+p.tw);
+        dots.push({sx,sy,z,size:p.size*perspective,alpha:light*pulse});
+      }
+      dots.sort((a,b)=>a.z-b.z);
+      for(const d of dots){
+        const a=Math.min(.92,d.alpha*.72);
+        ctx.beginPath();
+        ctx.arc(d.sx,d.sy,Math.max(.38,d.size),0,TAU);
+        ctx.fillStyle=`rgba(205,220,245,${a})`;
+        ctx.fill();
+      }
+      // Sparse brighter stars on the planet surface.
+      for(let i=0;i<18;i++){
+        const q=points[(i*47+Math.floor(t/1000))%points.length];
+        const ca=Math.cos(angle),sa=Math.sin(angle);
+        const x=q.x*ca-q.z*sa,z=q.x*sa+q.z*ca;
+        if(z<-.35) continue;
+        const pr=f/(f-z*.62);
+        ctx.beginPath();
+        ctx.arc(cx+x*R*pr,cy+q.y*R*pr,1.2*pr,0,TAU);
+        ctx.fillStyle="rgba(240,246,255,.72)";
+        ctx.fill();
+      }
+
+      // Real orbital movement of the rings around the planet.
+      const deg=(t*.0048)%360;
+      ringSystem.style.transform=`translate(-50%,-50%) rotateX(68deg) rotateZ(${-14+deg}deg)`;
+      requestAnimationFrame(drawSaturn);
+    }
+
+    resizeSaturn();
+    seed();
+    requestAnimationFrame(drawSaturn);
+    addEventListener("resize",resizeSaturn);
+  })();
+
 })();
 </script>
 </body>
-    </html>
+  </html>
